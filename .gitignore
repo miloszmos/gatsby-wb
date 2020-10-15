@@ -1,2 +1,4 @@
 /gatsby/node_modules
+/gatsby/.cache
 /sanity/node_modules
+/sanity/.cache
