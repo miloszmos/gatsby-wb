@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Footer = () => (
-  <footer>
-    <p>&copy; Slick's Slices {new Date().getFullYear}</p>
-  </footer>
-);
+const Footer = () => {
+  const currentDate = new Date().getFullYear();
+  return (
+    <footer>
+      <p>&copy; Slick's Slices {currentDate}</p>
+    </footer>
+  );
+};
 
 export default Footer;
