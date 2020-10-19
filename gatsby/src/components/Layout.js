@@ -28,6 +28,12 @@ const ContentStyled = styled.div`
   padding: 2rem;
 `;
 
+const FooterWrapped = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
 const Layout = ({ children }) => (
   <>
     <GlobalStyles />
@@ -36,9 +42,11 @@ const Layout = ({ children }) => (
       <ContentStyled>
         <Nav />
         {children}
+        <FooterWrapped>
+          <Footer />
+        </FooterWrapped>
       </ContentStyled>
     </SiteBorderStyles>
-    <Footer />
   </>
 );
 export default Layout;
