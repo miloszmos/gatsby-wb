@@ -3,6 +3,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Pagination from '../components/Pagination';
+import SEO from '../components/SEO';
 
 const SlicemasterGrid = styled.div`
   display: grid;
@@ -39,6 +40,7 @@ const SlicemasterStyled = styled.div`
 
 const SlicemasterPage = ({ data: { slicemasters }, pageContext }) => (
   <>
+    <SEO title={`slicemasters - Page ${pageContext.currentPage || 1}`} />
     <Pagination
       pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
       totalCount={slicemasters.totalCount}
@@ -48,7 +50,7 @@ const SlicemasterPage = ({ data: { slicemasters }, pageContext }) => (
     />
     <SlicemasterGrid>
       {slicemasters.nodes.map((slicemaster) => (
-        <SlicemasterStyled>
+        <SlicemasterStyled key={slicemaster.id}>
           <Link to={`/slicemaster/${slicemaster.slug.current}`}>
             {slicemaster.name}
           </Link>

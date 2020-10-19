@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
 
 const BeerGridStyled = styled.div`
   display: grid;
@@ -28,6 +29,7 @@ const BeersPage = ({ data: { beers } }) => {
 
   return (
     <>
+      <SEO title={`Beers! We have ${beers.nodes.length}`} />
       <h2 className="center">
         We have {beers.nodes.length} Beers Available. Dine in Only!
       </h2>
