@@ -24,37 +24,33 @@ const SingleBeerStyled = styled.div`
   }
 `;
 
-const BeersPage = ({ data: { beers } }) => {
-  console.log({ beers });
-
-  return (
-    <>
-      <SEO title={`Beers! We have ${beers.nodes.length}`} />
-      <h2 className="center">
-        We have {beers.nodes.length} Beers Available. Dine in Only!
-      </h2>
-      <BeerGridStyled>
-        {beers.nodes.map((beer) => {
-          const rating = Math.round(beer.rating.average);
-          return (
-            <SingleBeerStyled key={beer.id}>
-              <img src={beer.image} alt={beer.name} />
-              <h3>{beer.name}</h3>
-              {beer.price}
-              <p title={`${rating} out of 5 stars`}>
-                {`⭐️`.repeat(rating)}
-                <span style={{ filter: `grayscale(100%)` }}>
-                  {`⭐️`.repeat(5 - rating)}
-                </span>
-                <span>{beer.rating.reviews}</span>
-              </p>
-            </SingleBeerStyled>
-          );
-        })}
-      </BeerGridStyled>
-    </>
-  );
-};
+const BeersPage = ({ data: { beers } }) => (
+  <>
+    <SEO title={`Beers! We have ${beers.nodes.length}`} />
+    <h2 className="center">
+      We have {beers.nodes.length} Beers Available. Dine in Only!
+    </h2>
+    <BeerGridStyled>
+      {beers.nodes.map((beer) => {
+        const rating = Math.round(beer.rating.average);
+        return (
+          <SingleBeerStyled key={beer.id}>
+            <img src={beer.image} alt={beer.name} />
+            <h3>{beer.name}</h3>
+            {beer.price}
+            <p title={`${rating} out of 5 stars`}>
+              {`⭐️`.repeat(rating)}
+              <span style={{ filter: `grayscale(100%)` }}>
+                {`⭐️`.repeat(5 - rating)}
+              </span>
+              <span>{beer.rating.reviews}</span>
+            </p>
+          </SingleBeerStyled>
+        );
+      })}
+    </BeerGridStyled>
+  </>
+);
 
 export const query = graphql`
   query {
